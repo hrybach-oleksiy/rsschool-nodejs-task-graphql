@@ -1,3 +1,6 @@
+import { PrismaClient } from '@prisma/client';
+import { initDataLoaders } from '../loaders.js';
+
 interface Subscription {
   subscriberId: string;
   authorId: string;
@@ -22,4 +25,19 @@ export interface Member {
   id: string;
   discount: number;
   postsLimitPerMonth: number;
+}
+
+export interface Profile {
+  id: string;
+  isMale: boolean;
+  yearOfBirth: number;
+  userId: string;
+  memberTypeId: string;
+}
+
+type Loaders = ReturnType<typeof initDataLoaders>;
+
+export interface Context {
+  prisma: PrismaClient;
+  loaders: Loaders;
 }
