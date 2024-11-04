@@ -8,7 +8,7 @@ import {
 import { UUIDType } from '../types/uuid.js';
 import { MemberTypeId } from './memberId.js';
 import { MemberType } from './member.js';
-import { Context, Profile } from '../interfaces/index.js';
+import { Context, Profile } from '../interfaces/interfaces.js';
 
 const profileFields = {
   isMale: { type: GraphQLBoolean },

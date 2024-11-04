@@ -12,7 +12,7 @@ import { PostType } from './types/post.js';
 import { MemberType } from './types/member.js';
 import { MemberTypeId } from './types/memberId.js';
 
-import { Context, User, Profile, Member, Post } from './interfaces/index.js';
+import { Context, User, Profile, Member, Post } from './interfaces/interfaces.js';
 
 export const queries = new GraphQLObjectType<unknown, Context>({
   name: 'RootQueryType',

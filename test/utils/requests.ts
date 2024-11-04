@@ -62,6 +62,7 @@ export async function getMemberTypes(app: FastifyInstance) {
     method: 'GET',
   });
   const body = (await res.json()) as MemberTypeBody[];
+  console.log('body', body);
   return { res, body };
 }
 

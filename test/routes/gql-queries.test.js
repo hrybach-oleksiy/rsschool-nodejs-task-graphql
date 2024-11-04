@@ -54,6 +54,8 @@ await test('gql-queries', async (t) => {
     }`,
     });
 
+    console.log('Get all resources data', data.memberTypes);
+
     t.ok(data.memberTypes.length === memberTypes.length);
     t.ok(data.posts.length === posts.length);
     t.ok(data.users.length === users.length);
@@ -64,6 +66,15 @@ await test('gql-queries', async (t) => {
     const { body: user1 } = await createUser(app);
     const { body: post1 } = await createPost(app, user1.id);
     const { body: profile1 } = await createProfile(app, user1.id, MemberTypeId.BASIC);
+
+    // const { body: user1 } = await createUser(app);
+    // await createPost(app, user1.id);
+    // await createProfile(app, user1.id, MemberTypeId.BASIC);
+
+    // const { body: memberTypes } = await getMemberTypes(app);
+    // const { body: posts } = await getPosts(app);
+    // const { body: users } = await getUsers(app);
+    // const { body: profiles } = await getProfiles(app);
 
     const {
       body: { data },
@@ -93,10 +104,14 @@ await test('gql-queries', async (t) => {
       variables: {
         userId: user1.id,
         profileId: profile1.id,
-        memberTypeId: MemberTypeId.BASIC,
+        // memberTypeId: MemberTypeId.BASIC,
+        memberTypeId: 'BASIC',
         postId: post1.id,
       },
     });
+
+    console.log('Запит на отримання даних за ідентифікаторами:', data);
+    console.log('Отримані дані для memberType:', data.memberType);
 
     t.ok(data.memberType.id === MemberTypeId.BASIC);
     t.ok(data.post.id === post1.id);

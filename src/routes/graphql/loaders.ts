@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader';
 import { PrismaClient } from '@prisma/client';
 
-import { User, Post, Member } from './interfaces/index.js';
+import { User, Post, Member } from './interfaces/interfaces.js';
 
 const createDataLoader = <T>(
   batchLoadFn: (ids: readonly string[], prisma: PrismaClient) => Promise<T[]>,
