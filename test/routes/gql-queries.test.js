@@ -54,8 +54,6 @@ await test('gql-queries', async (t) => {
     }`,
     });
 
-    console.log('Get all resources data', data.memberTypes);
-
     t.ok(data.memberTypes.length === memberTypes.length);
     t.ok(data.posts.length === posts.length);
     t.ok(data.users.length === users.length);
